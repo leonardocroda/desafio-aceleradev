@@ -2,7 +2,6 @@ const axios = require("axios");
 const fs = require("fs");
 const sha1 = require("sha1");
 const request = require('request');
-const Blob = require('blob');
 
 const url = "https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=54750cbf19233360dcd5290038009ef6c4c34dc8";
 const alphabet = {
