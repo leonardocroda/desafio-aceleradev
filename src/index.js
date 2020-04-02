@@ -36,7 +36,7 @@ const alphabet = {
 const getData = async url => {
     const response = await axios.get(url);
     const data = response.data;
-    fs.writeFile("answer.json", JSON.stringify(data), (err) => {
+    fs.writeFile("./storage/answer.json", JSON.stringify(data), (err) => {
         if (err) {
             throw err;
         }
@@ -105,11 +105,11 @@ function sendAnswer(file, answerUrl) {
 
 const execute = async () => {
     await getData(url);
-    let content = await readFile('answer.json');
+    let content = await readFile('./storage/answer.json');
     content.decifrado = decrypt(content.cifrado, content.numero_casas);
     content.resumo_criptografico = sha1(content.decifrado);
-    await updateFile('answer.json', content);
-    sendAnswer('answer.json', 'https://api.codenation.dev/v1/challenge/dev-ps/submit-solution?token=54750cbf19233360dcd5290038009ef6c4c34dc8');
+    await updateFile('./storage/answer.json', content);
+    sendAnswer('./storage/answer.json', 'https://api.codenation.dev/v1/challenge/dev-ps/submit-solution?token=54750cbf19233360dcd5290038009ef6c4c34dc8');
 };
 
 execute();  

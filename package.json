@@ -4,14 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon src/index.js --ignore storage/"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
-    "express": "^4.17.1",
     "request": "^2.88.2",
     "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
